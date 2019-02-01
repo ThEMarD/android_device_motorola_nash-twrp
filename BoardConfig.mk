@@ -92,6 +92,7 @@ AB_OTA_UPDATER := true
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
+PLATFORM_SECURITY_PATCH := 2099-12-31
 
 # TWRP
 TW_THEME := portrait_hdpi
