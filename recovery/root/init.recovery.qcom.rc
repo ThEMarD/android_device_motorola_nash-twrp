@@ -92,12 +92,6 @@ service keymaster-3-0 /sbin/android.hardware.keymaster@3.0-service
     disabled
     seclabel u:r:recovery:s0
 
-service time_daemon /sbin/time_daemon
-    user root
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
 on boot
     # save battery by switching to interactive once booted
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
@@ -105,12 +99,8 @@ on boot
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor interactive
 
-on init
-    start time_daemon
-
 on property:crypto.ready=1
     start sbinqseecomd
-    restart time_daemon
 
 on property:crypto.ready=0
     stop sbinqseecomd
